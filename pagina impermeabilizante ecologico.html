@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Diseño Vertical</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    .seccion {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 20px;
+      width: 100%;
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+      min-height: 100vh;
+    }
+
+    .izquierda {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .nombre-eslogan {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      flex: 1;
+    }
+
+    .nombre {
+      font-weight: bold;
+      font-size: 30px;
+      color: #3c5d27;
+    }
+
+    .eslogan {
+      font-size: 18px;
+      font-style: italic;
+      text-align: left;
+      color: #3c5d27;
+    }
+
+    .logo {
+      background-color: #e6f0d5;
+      padding: 10px;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo img {
+      max-width: 200px;
+      max-height: 200px;
+      display: block;
+    }
+
+    .proposito {
+      background-color: #cde3b8;
+      padding: 30px;
+      text-align: left;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .proposito .titulo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #2e4d2b;
+      margin-bottom: 15px;
+      border-bottom: 2px solid #2e4d2b;
+      padding-bottom: 10px;
+    }
+
+    .proposito .contenido {
+      font-size: 16px;
+      color: #333;
+      line-height: 1.8;
+      margin-bottom: 15px;
+    }
+
+    .proposito strong {
+      color: #2e4d2b;
+    }
+
+    .materiales {
+      background-color: #5a8438;
+      color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+
+    .materiales h3 {
+      margin-bottom: 10px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .materiales p {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .materiales .innovacion {
+      background-color: #f0f0f0;
+      color: #333;
+      padding: 20px;
+      font-size: 16px;
+      line-height: 1.6;
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+
+    .foto {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: #2f4f23;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .foto-container {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 100%;
+      align-items: center;
+    }
+
+    .foto-container img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .calculadora, .info, .equipo {
+      background-color: #fff;
+      padding: 40px;
+      text-align: center;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .footer {
+      background-color: black;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .informacion-equipo {
+      background-color: #fff;
+      color: #333;
+      padding: 30px;
+      text-align: left;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .informacion-equipo h3 {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .informacion-equipo p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: #333;
+    }
+
+    .foto-equipo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 30px;
+    }
+
+    .foto-equipo img {
+      max-width: 80%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    /* -------------------- ESTILOS RESPONSIVOS -------------------- */
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    @media (max-width: 900px) {
+      .seccion {
+        grid-template-columns: 1fr;
+      }
+
+      .logo img {
+        max-width: 100px;
+        max-height: 100px;
+      }
+
+      .foto-container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .foto-container img {
+        max-width: 45%;
+        margin: 5px;
+      }
+
+      .informacion-equipo {
+        padding: 20px;
+      }
+
+      .foto-equipo img {
+        max-width: 100%;
+      }
+    }
+    .footer {
+  background-color: #2f4f23;
+  color: #fff;
+  text-align: center;
+  padding: 30px 20px;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.footer a {
+  color: #cde3b8;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+.volver-arriba {
+  display: inline-block;
+  margin-top: 10px;
+  background-color: #5a8438;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.volver-arriba:hover {
+  background-color: #3c5d27;
+}
+
+.navegacion-footer {
+  margin-top: 15px;
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- Sección principal -->
+  <div class="seccion">
+    <!-- Sección izquierda (información) -->
+    <div class="izquierda">
+      <div class="header">
+        <div class="nombre-eslogan">
+          <div class="nombre">Impertelligent</div>
+          <div class="eslogan">¡Sella con fuerza, protege con conciencia!</div>
+        </div>
+        <div class="logo">
+          <img src="logo.jpeg" alt="Logo del proyecto">
+        </div>
+      </div>
+
+      <!-- Propósito -->
+      <div class="proposito">
+        <div class="titulo">Proyecto: Impermeabilizante ecológico hecho a base de caucho reciclado de neumáticos</div>
+        <div class="contenido">
+          <p><strong>Problemática:</strong></p>
+          <p>El desecho inapropiado de neumáticos en Cananea, Sonora, causa contaminación del suelo y agua, y es un riesgo para la salud al atraer insectos y roedores. Los neumáticos tardan siglos en descomponerse y, al quemarse, liberan sustancias tóxicas que empeoran la calidad del aire y el cambio climático. Además, el deterioro de viviendas por las condiciones climáticas extremas, como altas temperaturas y lluvias intensas, provoca goteras y filtraciones, dañando la estructura de los inmuebles y aumentando los costos de mantenimiento. Esto resalta la necesidad de soluciones innovadoras y sostenibles.</p>
+
+          <p><strong>Justificación:</strong></p>
+          <p>Nuestro proyecto busca resolver el problema del desecho de neumáticos y la necesidad de un impermeabilizante ecológico. Al reciclar neumáticos para crear este impermeabilizante, reducimos residuos contaminantes y promovemos una gestión inteligente de residuos. Este producto protege las estructuras de los efectos del clima, previniendo filtraciones y la degradación de los materiales, lo que reduce costos de mantenimiento y prolonga la vida útil de las edificaciones. Además, el proyecto contribuye a la mitigación del cambio climático y fomenta la economía circular, utilizando residuos como materia prima para soluciones sostenibles.</p>
+        </div>
+      </div>
+
+      <!-- Materiales -->
+      <div class="materiales">
+        <h3>Materiales y Tecnología</h3>
+        <p>Impertelligent utiliza caucho reciclado, combinado con una tecnología avanzada de micropartículas, creando un impermeabilizante flexible, de alta adherencia y larga duración...</p>
+
+        <div class="innovacion">
+          <h3>Innovación:</h3>
+          <p>Impertelligent es un impermeabilizante ecológico que combina caucho reciclado y tecnología de micropartículas para ofrecer mayor flexibilidad, adherencia y durabilidad sin necesidad de malla de refuerzo ni sellador. Aprovecha neumáticos desechados, contribuyendo a la economía circular y reduciendo la contaminación. Su fórmula a base de agua es libre de solventes tóxicos, sin olores ni emisiones nocivas, y ofrece alta resistencia a temperaturas extremas, humedad y erosión. Es ideal para diversas superficies como concreto, madera, metal, techos, paredes y piscinas. Además, mejora la eficiencia térmica, ofrece aislamiento acústico y se aplica fácilmente con brocha o rodillo. Impertelligent destaca por su mayor espesor, resistencia a impactos y vibraciones, lo que garantiza una protección duradera y ahorros en mantenimiento, contribuyendo al cuidado del medio ambiente.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sección derecha (fotos del producto) -->
+    <div class="foto">
+      <div class="foto-container">
+        <img src="foto1.jpeg" alt="Foto del producto 1">
+        <img src="foto2.jpeg" alt="Foto del producto 2">
+        <img src="foto3.jpeg" alt="Foto del producto 3">
+      </div>
+    </div>
+  </div>
+
+  <!-- Información del equipo -->
+  <div class="informacion-equipo">
+    <h3>Información del Equipo</h3>
+    <p>Este proyecto busca abordar simultáneamente la problemática del desecho de neumáticos y la necesidad de un impermeabilizante eficiente y ecológico. Al reciclar neumáticos en la elaboración de un impermeabilizante ecológico, contribuimos a la reducción de residuos contaminantes y promovemos la gestión inteligente de residuos.</p>
+    <p>El desarrollo de este impermeabilizante no solo disminuye la cantidad de neumáticos en vertederos y su impacto ambiental, sino que también ofrece una solución efectiva para proteger las estructuras de los efectos del clima. Al aplicar este producto en techos y paredes, se previene la filtración de agua y la degradación de los materiales de construcción, reduciendo costos de mantenimiento y prolongando la vida útil de las edificaciones.</p>
+    <p>Este proyecto se alinea con los objetivos de mitigación del cambio climático y la economía circular, promoviendo el aprovechamiento de residuos como materia prima para soluciones sostenibles y de alto impacto ambiental y social.</p>
+    <div class="foto-equipo">
+      <img src="foto4.jpeg" alt="Foto del equipo de trabajo">
+    </div>
+  </div>
+
+  <!-- Descripción del producto -->
+  <div class="informacion-equipo">
+    <h3>Descripción del Producto</h3>
+    <p>
+      Impertelligent se compone principalmente de <strong>caucho reciclado de neumáticos</strong> y cuenta con una <strong>resina acrílica a base de agua</strong> que actúa como “pegamento” del sistema, proporcionando adherencia y flexibilidad. Además, incorpora <strong>cargas minerales naturales</strong> que refuerzan su estructura, incrementando la resistencia mecánica del recubrimiento.
+    </p>
+    <p>
+      Este producto contiene <strong>hidrofugantes naturales</strong> que le otorgan propiedades repelentes al agua, previniendo filtraciones y protegiendo las superficies. También se incluyen <strong>aditivos antimoho y anticorrosivos</strong>, junto con <strong>inhibidores de corrosión</strong>, para garantizar la durabilidad del recubrimiento en ambientes húmedos y en contacto con metales.
+    </p>
+    <p>
+      Asimismo, posee <strong>micropartículas</strong> que, al contacto con el agua, se expanden y forman una <strong>capa impermeable de alto rendimiento</strong>, reparando grietas y fisuras. Por último, se agrega un <strong>pigmento perlado en polvo metálico</strong> que proporciona color y refleja la luz solar, reduciendo la absorción de calor en techos y superficies expuestas al sol.
+    </p>
+  </div>
+
+  <!-- Pie de página -->
+  <div class="footer">
+    <p>&copy; 2025 Impertelligent. Todos los derechos reservados.</p>
+    <p>Contacto: <a href="mailto:impertelligent@correo.com">impertelligent@correo.com</a></p>
+    <p>Redes sociales: 
+      <a href="https://facebook.com/impertelligent" target="_blank">Facebook</a> | 
+      <a href="https://instagram.com/impertelligent" target="_blank">Instagram</a>
+    </p>
+  
+    <div class="navegacion-footer">
+      <a href="#proposito">Propósito</a> |
+      <a href="#materiales">Materiales</a> |
+      <a href="#equipo">Equipo</a> |
+      <a href="#producto">Producto</a>
+    </div>
+  </div>
+  
+
+</body>
+</html>
